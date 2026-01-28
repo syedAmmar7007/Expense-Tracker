@@ -61,7 +61,7 @@ export const ExpenseProvider = ({ children }) => {
   }, []);
 
   return (
-    <expenseContext.Provider value={{ signUp, login, logout }}>
+    <expenseContext.Provider value={{ signUp, login, logout ,user}}>
       {children}
     </expenseContext.Provider>
   );

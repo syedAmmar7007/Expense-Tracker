@@ -51,10 +51,10 @@ const AddExpense = () => {
           onChange={(e) => setCategory(e.target.value)}
           className="w-full px-4 py-2 bg-white/20 text-white rounded-xl border border-red-300 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-400"
         >
-          <option>Food</option>
-          <option>Transport</option>
-          <option>Shopping</option>
-          <option>Bills</option>
+          <option className="text-black">Food</option>
+          <option className="text-black">Transport</option>
+          <option className="text-black">Shopping</option>
+          <option className="text-black">Bills</option>
         </select>
 
         <input
@@ -73,7 +73,7 @@ const AddExpense = () => {
           onChange={(e) => setNotes(e.target.value)}
         />
 
-        <button className="w-full py-2 rounded-xl font-bold text-white bg-linear-to-r from-orange-400 to-red-500 hover:scale-105 shadow-lg transition-all">
+        <button  type="submit" className="w-full py-2 rounded-xl font-bold text-white bg-linear-to-r from-orange-400 to-red-500 hover:scale-105 shadow-lg transition-all">
           Add Expense
         </button>
       </form>
