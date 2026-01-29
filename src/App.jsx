@@ -4,6 +4,7 @@ import SignUp from './component/sign-up'
 import Dashboard from './component/dashboard';
 import { ExpenseProvider } from './store/expense-tracker-context';
 import Login from './component/login';
+import ProtectedRoute from './component/protected-routes';
 
 function App() {
 
@@ -13,7 +14,14 @@ function App() {
         <Routes>
           <Route path="/" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />{" "}
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </Router>
     </ExpenseProvider>

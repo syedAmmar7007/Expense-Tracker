@@ -12,7 +12,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebaseSetup/firebaseConfig";
 import { useAuth } from "../store/expense-tracker-context";
-import { categories } from "../store/categories"; // import above
+import { categories } from "../store/categories";
 
 const ExpenseList = () => {
   const { user } = useAuth();
@@ -83,7 +83,6 @@ const ExpenseList = () => {
         Your Expenses
       </h2>
 
-      {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-3 mb-4">
         <select
           className="w-full sm:w-1/2 px-3 py-2 bg-white/20 text-white rounded-xl border border-red-300 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-400"
@@ -92,7 +91,9 @@ const ExpenseList = () => {
         >
           <option className="text-black">All</option>
           {categories.map((cat) => (
-            <option key={cat.name} className="text-black">{cat.name}</option>
+            <option key={cat.name} className="text-black">
+              {cat.name}
+            </option>
           ))}
         </select>
 
@@ -112,7 +113,6 @@ const ExpenseList = () => {
         </div>
       </div>
 
-      {/* Expense List */}
       <div className="space-y-3">
         {filteredExpenses.length === 0 && (
           <p className="text-center text-white/70">No expenses found</p>
@@ -141,7 +141,9 @@ const ExpenseList = () => {
                     onChange={(e) => setEditCategory(e.target.value)}
                   >
                     {categories.map((c) => (
-                      <option className="text-black" key={c.name}>{c.name}</option>
+                      <option className="text-black" key={c.name}>
+                        {c.name}
+                      </option>
                     ))}
                   </select>
 
@@ -183,6 +185,12 @@ const ExpenseList = () => {
                     <div>
                       <p className="font-semibold text-white">{exp.category}</p>
                       <p className="text-sm text-white/70">Rs {exp.amount}</p>
+
+                      {exp.notes && exp.notes.trim() !== "" && (
+                        <p className="text-xs text-white/60 mt-1">
+                          📝 {exp.notes}
+                        </p>
+                      )}
                     </div>
                   </div>
 
