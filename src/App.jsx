@@ -5,6 +5,7 @@ import Dashboard from './component/dashboard';
 import { ExpenseProvider } from './store/expense-tracker-context';
 import Login from './component/login';
 import ProtectedRoute from './component/protected-routes';
+import Profile from './component/profile';
 
 function App() {
 
@@ -18,7 +19,15 @@ function App() {
             path="/dashboard"
             element={
               <ProtectedRoute>
-                <Dashboard />{" "}
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
               </ProtectedRoute>
             }
           />
